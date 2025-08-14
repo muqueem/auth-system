@@ -14,6 +14,11 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path="/" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
           <Route path="/register" element={<Register />}/>
           <Route path="/verify-email/:token" element={<VerifyEmail />}/>
           <Route path="/login" element={<Login />} />
