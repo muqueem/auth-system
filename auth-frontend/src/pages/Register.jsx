@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 
 const Register = () => {
   const [form, setForm] = useState({ username: "", email: "", password: "" });
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,6 +21,7 @@ const Register = () => {
       if (res.success) {
         toast.success(res.message);
         console.log(`Click this link to verify your account: ${res.verifyLink}`);
+        setMessage("Check console for email Verification");
       } else {
         toast.error(res.message);
       }
@@ -72,6 +74,7 @@ const Register = () => {
         </button>
       </form>
       <p className="mt-4 text-blue-400">Already have an account ? <Link className="underline" to="/login">Login</Link></p>
+      {message && <p className="text-green-500">{message}</p>}
     </div>
   );
 };

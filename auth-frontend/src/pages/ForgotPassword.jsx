@@ -14,6 +14,7 @@ const ForgotPassword = () => {
       const res = await forgotPassword({ email });
       if (res.success) {
         toast.success(res.message);
+        setMessage("Check console to reset password link");
       } else {
         toast.error(res.message);
         setMessage(res.message);
